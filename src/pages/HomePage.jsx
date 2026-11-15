@@ -14,6 +14,7 @@ import {
   VolumeX,
 } from 'lucide-react';
 import { featuredContractorProjects } from '../data/contractorProjects';
+import FaqSection from '../components/FaqSection';
 
 const audiences = [
   { title: 'Individuals & Families', description: 'Find the right home for yourself or your family.', icon: Home },
@@ -50,7 +51,7 @@ export default function HomePage({
   const [heroPlaying, setHeroPlaying] = useState(true);
 
   useEffect(() => {
-    const target = initialSection === 'about' ? document.getElementById('about') : null;
+    const target = initialSection === 'home' ? null : document.getElementById(initialSection);
     window.requestAnimationFrame(() => {
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -396,6 +397,8 @@ export default function HomePage({
           ))}
         </div>
       </section>
+
+      <FaqSection openCircleModal={openCircleModal} />
 
       <section className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
         <div className={`absolute inset-0 ${isDark ? 'bg-[radial-gradient(circle_at_50%_35%,rgba(214,181,108,0.08),transparent_58%)]' : 'bg-[radial-gradient(circle_at_50%_35%,rgba(179,143,41,0.08),transparent_58%)]'}`} />

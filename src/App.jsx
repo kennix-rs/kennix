@@ -90,13 +90,14 @@ export default function App() {
     switch (activePage) {
       case 'home':
       case 'about':
+      case 'faq':
         return (
           <HomePage 
             setActivePage={setActivePage} 
             openCircleModal={openCircleModal} 
             setSelectedProject={setSelectedProject} 
             theme={theme}
-            initialSection={activePage === 'about' ? 'about' : 'home'}
+            initialSection={activePage === 'home' ? 'home' : activePage}
           />
         );
       case 'community-development':
